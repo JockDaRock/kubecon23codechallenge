@@ -1,0 +1,55 @@
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+  background-color: #e6e6fa;
+  padding: 60px;
+  border-radius: 30px;
+  margin: 30px auto;
+  position: relative; /* For click outside logic */
+}
+
+button {
+  margin: 10px 0;
+  padding: 10px 15px;
+  border: none;
+  background-color: #4CAF50;
+  color: #FFF;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.hamburger-menu {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10; /* Ensure it's above other content */
+}
+
+.menu {
+  background-color: #e6e6fa;
+  position: absolute;
+  top: 50px;  /* Increase the top value to position it below the hamburger button */
+  width: 250px;  /* Optionally set a width to make sure it's wide enough for the text */
+  text-align: center;  /* Center the text inside */
+  right: 10px;
+  border-radius: 5px;
+  z-index: 9; /* Under the hamburger button, but above other content */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.menu button {
+  display: block;
+  width: 100%;
+  text-align: center;  /* Center the text */
+}

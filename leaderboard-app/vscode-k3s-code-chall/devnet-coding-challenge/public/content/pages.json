@@ -1,0 +1,17 @@
+{
+   "title":"sample tutorial",
+   "tutorial_pages":[
+      {
+         "page_title": "Intro",
+         "location": "1.md"
+      },
+      {
+         "page_title": "Coding Challenge",
+         "location": "2.md"
+      },
+      {
+         "page_title": "Completion",
+         "location": "3.md"
+      }
+   ]
+ }

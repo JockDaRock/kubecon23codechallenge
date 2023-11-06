@@ -1,0 +1,230 @@
+/* src/components/SignUp.css */
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+:root {
+  --gradient-border-wrapper-height: 310px;
+  --gradient-border-wrapper-width: 310px;
+}
+
+.dark-theme {
+  background: linear-gradient(to bottom, #13284c, #414344);
+  height: 100vh;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* .gradient-border-wrapper {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 5px;
+  background: linear-gradient(90deg, red, yellow, green, blue, purple, red);
+  animation: spinGradient 5s linear infinite;
+} */
+
+.gradient-border-wrapper {
+  position: relative;
+  background-color: #13284c; /* see-through purple */
+  border-radius: 10px;
+  padding: 5px;
+  width: 300px;
+  height: 335px;
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: rgb(88 199 150 / 0%);
+  cursor: pointer;
+}
+
+.gradient-border-wrapper:hover {
+  color: rgb(88 199 250 / 100%);
+  transition: color 1s;
+}
+.gradient-border-wrapper:hover:before, .gradient-border-wrapper:hover:after {
+  animation: none;
+  opacity: 0;
+}
+
+.gradient-border-wrapper::before {
+  content: "";
+  width: 103%;
+  height: 103%;
+  border-radius: 10px;
+  background: linear-gradient(
+    var(--rotate)
+    , #75c04a, #01bcea 43%, #1a54a5);
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
+
+.gradient-border-wrapper::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--gradient-border-wrapper-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--gradient-border-wrapper-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate)
+    , #75c04a, #01bcea 43%, #1a54a5);
+    opacity: 1;
+  transition: opacity .5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+.form-container {
+  background-color: #13284c; /* see-through purple */
+  border-radius: 10px;
+  padding: 30px;
+  width: 300px;
+  backdrop-filter: blur(10px);
+}
+
+.input-field {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  color: white;
+}
+
+.input-field::placeholder {
+  color: #add8e6; /* light blue */
+}
+
+/* .submit-button {
+  background-color: #f36d33;
+  border-color: #f36d33;
+  color: white;
+  margin-top: 20px;
+  border-radius: 20px;
+} */
+
+.submit-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.submit-button:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.submit-button span {
+  position: absolute;
+  display: block;
+}
+
+.submit-button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.submit-button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.submit-button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.submit-button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+.form-group-spacing {
+  margin-bottom: 20px;
+}

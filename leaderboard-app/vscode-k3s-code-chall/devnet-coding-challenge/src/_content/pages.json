@@ -1,0 +1,9 @@
+{
+   "title":"sample tutorial",
+   "tutorial_pages":[
+      {
+         "page_title": "Sample Page 1",
+         "location": "sample.md"
+      }
+   ]
+ }
