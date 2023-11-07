@@ -3,24 +3,25 @@ import '../styles/Player.css';
 
 function timeFormatter(seconds) {
     const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
+    const secs = Math.round(seconds % 60);
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
 }
 
-const Player = React.forwardRef(({ rank, name, completionTime, avatar }, ref) => {
-    const avatarUrlJPG = `/avatars/avatar${avatar}.jpg`;
-    const avatarUrlPNG = `/avatars/avatar${avatar}.png`;
+const Player = React.forwardRef(({ id, firstName, lastName, completionTime, email, avatar }, ref) => {
+    // Assuming the avatar image files are named as "avatar1.jpg", "avatar2.jpg", etc.
+    // and are placed in the "public/avatars" directory.
+    const avatarUrl = `/avatars/avatar${avatar}.png`; // or `.png` if they are png images
 
     return (
-        <div className="player">
+        <div className="player" ref={ref}>
             <div className="avatar">
-                {/* Use the avatar in JPG format, if it doesn't exist, fallback to PNG */}
-                <img src={avatarUrlJPG} onError={(e) => { e.target.onerror = null; e.target.src = avatarUrlPNG }} alt={name} />
+                <img src={avatarUrl} alt={`${firstName} ${lastName}`} />
             </div>
             <div className="player-info">
-                <span className="rank">{rank}</span>
-                <span className="name">{name}</span>
+                <span className="rank">{id}</span> {/* Rank can be replaced by ID or another prop if needed */}
+                <span className="name">{firstName} {lastName}</span>
                 <span className="completion-time">{timeFormatter(completionTime)}</span>
+                {/* <span className="email">{email}</span> */}
             </div>
         </div>
     );

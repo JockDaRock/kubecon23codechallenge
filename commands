@@ -1,1 +1,14 @@
-docker run -it --privileged -p 8080:8080 -p 3000:3000 -p 5000:5000 ghcr.io/jockdarock/k3sdevenv:nok-pynode-v0.0.0
+sudo docker run -it --privileged -p 8080:8080 -p 3000:3000 -p 5000:5000 ghcr.io/jockdarock/k3sdevenv:nok-pynode-v0.0.0
+
+107.171.33.254
+
+sudo echo '{ "insecure-registries" : [ "107.171.33.254:5000" ] }' > /etc/docker/daemon.json && sudo systemctl daemon-reload && sudo systemctl restart docker
+
+sudo docker run -it --privileged -p 80:80 -e FORWARD_URL=http://107.171.33.254/api/leaders ghcr.io/jockdarock/k3sdevenv:nok-pynode-v0.0.1
+
+sudo docker run -it --privileged -p 80:80 -e FORWARD_URL=http://192.168.138.11/api/leaders ghcr.io/jockdarock/k3sdevenv:nok-pynode-v0.0.1
+
+
+sudo docker run -it --privileged -p 8181:80 -e MURL=192.168.138.11:27017 ghcr.io/jockdarock/k3sdevenv:nok-nodengninx-v0.0.2
+
+sudo docker run -it --privileged -p 80:80 -e MURL=107.171.33.254:27017 ghcr.io/jockdarock/k3sdevenv:nok-nodengninx-v0.0.2

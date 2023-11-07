@@ -7,7 +7,7 @@ import { marked as markdownProcessor } from 'marked';
 import './CodingChallenge.css';  // importing our styles
 import IFrameComponent from './IFrameComponent';
 
-const leaderboardPostUrl = "http://localhost:5000/leaderboard"
+const leaderboardPostUrl = "http://localhost/leaderboard"
 
 
 function CodingChallenge({ onSignDown }) {
@@ -192,7 +192,7 @@ function CodingChallenge({ onSignDown }) {
     {/* Right Panel */}
     <div style={{ flex: 1, width: `calc(100% - ${width}px)`}} className="right-panel-content">
         {/* <IFrameComponent src="https://httpbin.org" title="HTTP Bin" /> */}
-        <IFrameComponent src="http://localhost:8080" title="HTTP Bin" />
+        <IFrameComponent src="http://localhost/code/?folder=/devnet/panoptica" title="HTTP Bin" />
     </div>
       
     </div>

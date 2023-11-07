@@ -2,3 +2,4 @@ flask
 requests
 flask_cors
 git+https://github.com/klyr/escher-python.git@scn
+python-dotenv

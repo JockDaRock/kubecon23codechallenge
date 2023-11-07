@@ -8,6 +8,17 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.hero-banner img {
+  width: 100%; /* Makes the image responsive */
+  max-height: 50vh; /* Adjust the maximum height to fit the screen */
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+}
+
+.leaderboard {
+  overflow: auto; /* Adds scroll to the leaderboard if it exceeds its allocated space */
+  max-height: 50vh; /* Adjust the maximum height to fit the screen */
+}
+
 
 .App-logo {
   height: 40vmin;

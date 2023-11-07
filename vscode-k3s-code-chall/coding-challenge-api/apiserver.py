@@ -9,11 +9,13 @@ app = Flask(__name__)
 # Disable CORS for all domains on all routes
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+pytestloc = "/devnet/panoptica/occurences_req.py"
+
 @app.route('/check_critical', methods=['GET'])
 def check_critical():
     try:
         # Execute the script and capture the output
-        result = subprocess.run(['python3', '/Users/jockdarock/jock-projects/chatgptgui/site001/coding-challenge-api/occurences_req.py'], capture_output=True, text=True, check=True)
+        result = subprocess.run(['python3', pytestloc], capture_output=True, text=True, check=True)
         output = result.stdout
 
         # Parse the output as JSON
@@ -34,6 +36,8 @@ def leaderboard():
     try:
         # Get the URL from the environment variable or use the default if it doesn't exist
         url = os.environ.get('FORWARD_URL', 'https://httpbin.org/post')
+        open(pytestloc, 'w').close()
+        subprocess.run(['echo', '', '>', pytestloc], capture_output=True, text=True, check=True)
         
         # Forward the incoming data to the specified URL using the requests library
         response = requests.post(url, json=request.json)
